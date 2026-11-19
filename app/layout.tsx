@@ -1,13 +1,35 @@
 import type { Metadata } from 'next'
-import { Anton, Archivo, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { site } from '@/lib/site'
 import './globals.css'
 
-const anton = Anton({ weight: '400', subsets: ['latin'], variable: '--f-hero', display: 'swap' })
-const archivo = Archivo({ weight: ['500', '600', '700', '800'], subsets: ['latin'], variable: '--f-display', display: 'swap' })
-const inter = Inter({ weight: ['400', '500', '600', '700'], subsets: ['latin'], variable: '--f-body', display: 'swap' })
+// Self-hosted. next/font/google fetches from Google at build time, and a build
+// machine that cannot reach fonts.googleapis.com fails the whole build. These
+// are the same faces, latin subset, served from our own origin - which is also
+// one fewer third-party request for the visitor.
+const anton = localFont({
+  src: './fonts/anton.woff2',
+  weight: '400',
+  style: 'normal',
+  variable: '--f-hero',
+  display: 'swap',
+})
+const archivo = localFont({
+  src: './fonts/archivo.woff2',
+  weight: '100 900',
+  style: 'normal',
+  variable: '--f-display',
+  display: 'swap',
+})
+const inter = localFont({
+  src: './fonts/inter.woff2',
+  weight: '100 900',
+  style: 'normal',
+  variable: '--f-body',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
