@@ -1,0 +1,55 @@
+Alvari Group - photography credits
+==================================
+
+Every image is from Unsplash under the Unsplash Licence: free for commercial
+use, no permission needed, no attribution required (crediting the
+photographer is still appreciated). Any photo page is at
+https://unsplash.com/photos/<id>
+
+Brief: modern UK roofs, no people in frame. The one exception is
+svc-flat.jpg, which is a flat roof but not recognisably British - swap it
+first when Alvari's own photos arrive.
+
+Brief cont: The only shots that show a worn
+or damaged roof are the two that should - the Roof Repairs and Storm Damage
+cards - because those sections are about finding and fixing a problem.
+
+  FILE              UNSPLASH PHOTO                SHOWS
+  hero.jpg          1710883727427-59d1ccc368fa    new-build brick terrace (3840x2160)
+  cta.jpg           1710883727427-2bac80c80f2d    new estate from the air (3840x1400)
+  svc-tall.jpg      1518736346281-76873166a64a    crisp new tiles, hard light
+  about.jpg         1710883734889-5a0b8ab6bfcf    finished two-storey home
+  why.jpg           1557671009-600c3a1973ca       clean clay tile roof
+  process.jpg       1551104271-0bcb571ad767       scaffolding up, work under way
+  svc-repairs.jpg   1760007417965-c97d7cd3e348    worn tiles  (deliberate)
+  svc-reroof.jpg    1605450099279-533bd3ce379a    new tiles in fresh courses
+  svc-flat.jpg      1783125127325-40d24bb19c87    a flat roof, clean lines
+  svc-storm.jpg     1786535540710-d23daaf85d7e    failed slate  (deliberate)
+  work1.jpg         1710883727434-01c65fc14c76    new brick home, double garage
+  work2.jpg         1710883727446-0bf5692fd709    new two-storey home
+  work3.jpg         1595751100377-9954f1f99bad    modern render and tile
+  work4.jpg         1754015782879-85b3b3b8104d    roofs with solar panels
+  work5.jpg         1732721176410-6c532cf429a3    new residential street
+  work6.jpg         1783858828529-6f5354095c60    homes on a green hill
+  blog1.jpg         1610056868457-e61d6f9eeb86    tile detail
+  blog2.jpg         1508167290553-87a67eca5bf5    rooftops from above
+  blog3.jpg         1673645652590-9d21295bf4ac    shingle detail
+
+Sizing: each file is downloaded at roughly twice its display size, so it is
+sharp on a retina screen without being needlessly heavy. The hero and the
+closing CTA band run full-bleed, so those two are true 4K.
+
+Before launch, convert these to WebP or AVIF. The hero alone is about 1.3MB
+as a JPEG, which is slow on mobile data; WebP typically cuts that by 60-70%
+with no visible difference.
+
+Do NOT replace these with images from a Google Images search - those are
+almost always someone else's copyright and this is a commercial site.
+Alvari's own job photographs are the real upgrade here, especially in the
+Recent Work gallery.
+
+Logo
+  logo-original.jpg  the generated master supplied by the client.
+  The header/footer/favicon marks are hand-redrawn SVG versions of it so they
+  stay crisp at any size and adapt to dark mode. If the logo ever changes,
+  update the <svg> in .brand (header), .ftr2 .logo (footer) and favicon.svg.
