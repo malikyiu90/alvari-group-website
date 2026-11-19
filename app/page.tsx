@@ -5,6 +5,7 @@ import { services } from '@/lib/services'
 import EnquiryForm from '@/components/EnquiryForm'
 import ServiceAreaMap from '@/components/ServiceAreaMap'
 import Reveal from '@/components/Reveal'
+import Reviews from '@/components/Reviews'
 import { Chevron, Star, Pin, Sq } from '@/components/Icons'
 
 const img = (n: string) => `/images/${n}.webp`
@@ -284,21 +285,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="rev-invite">
-            <Star size={40} fill="none" />
-            <h3>We are just getting started on Google</h3>
-            <p>
-              {site.name} is a new listing, so there are no reviews here yet &mdash; and we would
-              rather show you none than show you someone else&rsquo;s. If we have been on your roof,
-              a review helps the next person in Leicestershire decide who to call.
-            </p>
-            <div className="rev-invite-cta">
-              <a className="btn btn--orange" href={site.googleProfile} target="_blank" rel="noopener noreferrer">
-                <Sq />Leave us a review
-              </a>
-              <Link className="btn btn--ghost" href="#quote"><Sq />Get a free estimate</Link>
-            </div>
-          </div>
+          <Reviews />
         </div>
       </section>
 
