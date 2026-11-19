@@ -93,8 +93,8 @@ form.is-sent .sent{display:flex}
 
 /* ===================== HERO SYSTEM ===================== */
 :root{
-  --hero-veil:linear-gradient(100deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.80) 30%,rgba(255,255,255,.18) 58%,rgba(255,255,255,0) 74%);
-  --hero-ink:#041C76; --hero-sub:#2B3752; --card:#FFFFFF; --card-shadow:rgba(4,28,118,.18); --hero-veil-sm:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.90) 54%,rgba(255,255,255,.52) 78%,rgba(255,255,255,.18) 100%);
+  --hero-veil:linear-gradient(100deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.86) 26%,rgba(255,255,255,.42) 46%,rgba(255,255,255,.06) 62%,rgba(255,255,255,0) 72%);
+  --hero-ink:#041C76; --hero-sub:#2B3752; --card:#FFFFFF; --card-shadow:rgba(4,28,118,.18); --hero-veil-sm:linear-gradient(180deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.88) 46%,rgba(255,255,255,.40) 72%,rgba(255,255,255,.06) 92%,rgba(255,255,255,0) 100%);
 }
 
 /* --- top bar --- */
@@ -447,7 +447,7 @@ form.reqform.is-sent .btn{display:none}
 .cta{position:relative;overflow:hidden;background:var(--navy);color:#fff;isolation:isolate}
 .cta > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .cta::after{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(90deg,rgba(4,28,118,.96),rgba(4,28,118,.84) 52%,rgba(4,28,118,.55))}
+  background:linear-gradient(90deg,rgba(4,28,118,.93) 0%,rgba(4,28,118,.78) 40%,rgba(4,28,118,.40) 66%,rgba(4,28,118,.18) 100%)}
 .cta .wrap{position:relative;z-index:2}
 .cta h2{font-family:var(--font-hero);font-weight:400;text-transform:uppercase;color:#fff;
   font-size:var(--h2);line-height:1.06;letter-spacing:.01em;max-width:21ch}
@@ -687,7 +687,7 @@ b.is-empty::before{content:"4 to be added";font-weight:500;color:var(--muted);
 .svc-hero{position:relative;overflow:hidden;background:var(--navy);color:var(--on-navy);isolation:isolate}
 .svc-hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .svc-hero::after{content:"";position:absolute;inset:0;z-index:1;
-  background:linear-gradient(95deg,rgba(4,28,118,.96),rgba(4,28,118,.88) 52%,rgba(4,28,118,.62))}
+  background:linear-gradient(95deg,rgba(4,28,118,.93) 0%,rgba(4,28,118,.80) 38%,rgba(4,28,118,.42) 62%,rgba(4,28,118,.20) 82%,rgba(4,28,118,.12) 100%)}
 .svc-hero .wrap{position:relative;z-index:2;padding-block:clamp(34px,4.6vw,66px)}
 .svc-hero h1{font-family:var(--font-hero);font-weight:400;text-transform:uppercase;color:#fff;
   font-size:clamp(28px,3.4vw,50px);line-height:1.05;letter-spacing:.01em;max-width:18ch}
@@ -772,3 +772,17 @@ b.is-empty::before{content:"4 to be added";font-weight:500;color:var(--muted);
 .work2 figure img{position:absolute;inset:0;width:100%;height:100%}
 .svccard-media,.post-shot{position:relative;aspect-ratio:16/10;overflow:hidden}
 .svccard-media img{position:absolute;inset:0;width:100%;height:100%}
+
+
+/* ===================== OVERLAYS ON NARROW SCREENS ===================== */
+/* side-to-side gradients only work while the text sits in one half. Once the
+   layout stacks, cover vertically so the copy keeps its contrast and the
+   photograph still shows underneath it. */
+@media (max-width:860px){
+  .svc-hero::after{
+    background:linear-gradient(180deg,rgba(4,28,118,.93) 0%,rgba(4,28,118,.86) 52%,
+      rgba(4,28,118,.52) 78%,rgba(4,28,118,.28) 100%)}
+  .cta::after{
+    background:linear-gradient(180deg,rgba(4,28,118,.92) 0%,rgba(4,28,118,.84) 58%,
+      rgba(4,28,118,.50) 85%,rgba(4,28,118,.26) 100%)}
+}
