@@ -8,9 +8,9 @@
   --orange:#D93A14; --orange-hi:#E33512; --orange-text:#C13110;
   --accent:#335796; --logo-ink:#16317B; --blue-pale:#A6BCD9; --blue:#0B5FCB; --blue-soft:#DCE6F7; --on-soft:#041C76;
   --on-orange:#FFFFFF; --on-navy:#FFFFFF; --on-navy-muted:#A6BCD9;
-  --font-hero:'Anton','Archivo Narrow',Impact,sans-serif;
-  --font-display:'Archivo','Helvetica Neue',Arial,sans-serif;
-  --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-hero:var(--f-hero),'Archivo Narrow',Impact,sans-serif;
+  --font-display:var(--f-display),'Helvetica Neue',Arial,sans-serif;
+  --font-body:var(--f-body),system-ui,-apple-system,'Segoe UI',sans-serif;
   --wrap:1280px;
   /* one radius scale, one spacing rhythm, one frame - used by every section */
   --r-sm:5px; --r-md:10px; --r-lg:14px; --r-pill:999px;
@@ -750,3 +750,25 @@ b.is-empty::before{content:"4 to be added";font-weight:500;color:var(--muted);
 .svc-cards--all{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:980px){.svc-cards--all{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:620px){.svc-cards--all{grid-template-columns:1fr}}
+
+
+/* ===================== REACT ADDITIONS ===================== */
+/* sections fade in once, and only when the observer is actually running */
+.reveal{opacity:1;transform:none}
+.reveal.is-hidden{opacity:0;transform:translateY(18px)}
+.reveal.is-shown{opacity:1;transform:none;
+  transition:opacity .6s cubic-bezier(.2,.7,.3,1),transform .6s cubic-bezier(.2,.7,.3,1)}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.is-hidden,.reveal.is-shown{opacity:1;transform:none;transition:none}
+}
+
+.reqform-error{grid-column:1/-1;color:var(--orange-text);font-size:var(--fs-sm);font-weight:600;margin-top:-4px}
+
+/* next/image fills its framed box */
+.about-shot img,.whyc-shot img,.proc-shot img,.svcs-photo img,
+.svccard img,.work2 figure img,.post-shot img,.svc-hero > img,.cta > img,
+.hero-photo{object-fit:cover}
+.about-shot,.whyc-shot,.proc-shot,.svcs-photo,.post-shot,.work2 figure{position:relative}
+.work2 figure img{position:absolute;inset:0;width:100%;height:100%}
+.svccard-media,.post-shot{position:relative;aspect-ratio:16/10;overflow:hidden}
+.svccard-media img{position:absolute;inset:0;width:100%;height:100%}
