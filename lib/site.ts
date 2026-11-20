@@ -6,7 +6,7 @@ export const site = {
   phone: '07483 172469',
   phoneHref: 'tel:+447483172469',
   phoneE164: '+44 7483 172469',
-  email: 'hello@alvarigroup.co.uk',
+  email: 'office@alvarigroup.co.uk',
   hours: 'Open 24 hours, 7 days a week',
   hoursShort: 'Open 24/7',
   region: 'Leicestershire',

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Privacy notice',
@@ -26,7 +27,7 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
         use this website, we are the <strong>data controller</strong> for the personal information you give us.</p>
         <p>Registered address: <strong>to be confirmed</strong>. Company number: <strong>to be confirmed</strong>.
         ICO registration: <strong>to be confirmed</strong>.</p>
-        <p>You can reach us about anything on this page at Alvari Group, 07483&nbsp;172469, <a href="mailto:hello@alvarigroup.co.uk">hello@alvarigroup.co.uk</a>.</p>
+        <p>You can reach us about anything on this page at Alvari Group, {{phone}}, <a href="mailto:{{email}}">{{email}}</a>.</p>
       </section>
       <section id="collect">
         <h2>What we collect</h2>
@@ -96,7 +97,7 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
           <li>restrict or object to how we use it;</li>
           <li>send it to you, or to someone else, in a portable format.</li>
         </ul>
-        <p>Write to Alvari Group, 07483&nbsp;172469, <a href="mailto:hello@alvarigroup.co.uk">hello@alvarigroup.co.uk</a>. We answer within one month and we do not charge for it.</p>
+        <p>Write to Alvari Group, {{phone}}, <a href="mailto:{{email}}">{{email}}</a>. We answer within one month and we do not charge for it.</p>
       </section>
       <section id="complain">
         <h2>Complaints</h2>
@@ -110,6 +111,12 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
         <p>If we change how we handle your information we will update this page and change the date at the top.</p>
       </section>
 `
+
+// contact details come from lib/site.ts, so they cannot drift from the rest
+// of the site the way hardcoded ones did
+const filled = body
+  .replaceAll('{{email}}', site.email)
+  .replaceAll('{{phone}}', site.phone.replace(/ /g, ' '))
 
 export default function Page() {
   return (
@@ -138,7 +145,7 @@ export default function Page() {
               ))}
             </ol>
           </nav>
-          <div className="doc-body" dangerouslySetInnerHTML={{ __html: body }} />
+          <div className="doc-body" dangerouslySetInnerHTML={{ __html: filled }} />
         </div>
       </section>
     </>

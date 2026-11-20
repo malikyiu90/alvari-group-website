@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Security',
@@ -47,7 +48,7 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
         <p><strong>We never take card details through this website, by email, or in a phone message.</strong>
         There is no payment page here. Payment is arranged with you on completion, by the method set out in your quote.</p>
         <p>If anyone asks you to pay Alvari Group by card over the phone, in cryptocurrency, or into an account you
-        have not seen on one of our invoices &mdash; stop, and call us on 07483&nbsp;172469.</p>
+        have not seen on one of our invoices &mdash; stop, and call us on {{phone}}.</p>
       </section>
       <section id="contact">
         <h2>How we will and will not contact you</h2>
@@ -70,11 +71,17 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
       <section id="report">
         <h2>Reporting a problem</h2>
         <p>If you think someone is using our name, or you have found a security problem with this website, tell
-        us at Alvari Group, 07483&nbsp;172469, <a href="mailto:hello@alvarigroup.co.uk">hello@alvarigroup.co.uk</a> and we will look into it.</p>
+        us at Alvari Group, {{phone}}, <a href="mailto:{{email}}">{{email}}</a> and we will look into it.</p>
         <p>Suspected fraud can also be reported to Action Fraud on 0300 123 2040 or at
         <a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener">actionfraud.police.uk</a>.</p>
       </section>
 `
+
+// contact details come from lib/site.ts, so they cannot drift from the rest
+// of the site the way hardcoded ones did
+const filled = body
+  .replaceAll('{{email}}', site.email)
+  .replaceAll('{{phone}}', site.phone.replace(/ /g, ' '))
 
 export default function Page() {
   return (
@@ -103,7 +110,7 @@ export default function Page() {
               ))}
             </ol>
           </nav>
-          <div className="doc-body" dangerouslySetInnerHTML={{ __html: body }} />
+          <div className="doc-body" dangerouslySetInnerHTML={{ __html: filled }} />
         </div>
       </section>
     </>

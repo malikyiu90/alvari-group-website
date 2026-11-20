@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Terms & conditions',
@@ -46,7 +47,7 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
         <p>If you agree the work at your home, or anywhere away from our business premises, you have a legal
         right to cancel within <strong>14 days</strong> without giving a reason. The period runs from the day you
         agree the contract.</p>
-        <p>To cancel, tell us in any clear way &mdash; a call, an email or a letter all count &mdash; at Alvari Group, 07483&nbsp;172469, <a href="mailto:hello@alvarigroup.co.uk">hello@alvarigroup.co.uk</a>. A
+        <p>To cancel, tell us in any clear way &mdash; a call, an email or a letter all count &mdash; at Alvari Group, {{phone}}, <a href="mailto:{{email}}">{{email}}</a>. A
         cancellation form comes with your quote, but you do not have to use it.</p>
         <h3>If you want us to start inside the 14 days</h3>
         <p>We will not begin before the 14 days are up unless you ask us to in writing. If you do ask and then
@@ -115,7 +116,7 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
       </section>
       <section id="complaints">
         <h2>Complaints</h2>
-        <p>Tell us first. Call 07483&nbsp;172469 and we will come and look &mdash; most things get resolved on the roof.</p>
+        <p>Tell us first. Call {{phone}} and we will come and look &mdash; most things get resolved on the roof.</p>
         <p>If we cannot resolve it between us, you can take it to an alternative dispute resolution scheme
         &mdash; <strong>to be confirmed</strong> &mdash; or to the courts.</p>
       </section>
@@ -125,6 +126,12 @@ const body = `      <div className="doc-note"><p><strong>Have this checked befor
         jurisdiction.</p>
       </section>
 `
+
+// contact details come from lib/site.ts, so they cannot drift from the rest
+// of the site the way hardcoded ones did
+const filled = body
+  .replaceAll('{{email}}', site.email)
+  .replaceAll('{{phone}}', site.phone.replace(/ /g, ' '))
 
 export default function Page() {
   return (
@@ -153,7 +160,7 @@ export default function Page() {
               ))}
             </ol>
           </nav>
-          <div className="doc-body" dangerouslySetInnerHTML={{ __html: body }} />
+          <div className="doc-body" dangerouslySetInnerHTML={{ __html: filled }} />
         </div>
       </section>
     </>

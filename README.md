@@ -60,7 +60,7 @@ The first four have legal weight in the UK.
 - [ ] **Company number and VAT number** — footer. A UK limited company must show
       its registered name and number on its website (Companies Act 2006).
 - [ ] **Registered address** — footer still says `Unit 4, Example Works`.
-- [ ] **Email address** — `hello@alvarigroup.co.uk` was assumed, not verified.
+- [ ] **Email address** — `office@alvarigroup.co.uk` was assumed, not verified.
 - [ ] **Legal pages** — every `to be confirmed` filled in, and a solicitor's read
       of the 14-day cancellation section in `/terms`. Getting that wrong makes a
       consumer contract unenforceable.
